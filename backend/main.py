@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 # ---------------- LOAD MODEL ----------------
-model = joblib.load(r"C:\Users\Dhanvantri\Desktop\credit-card-fraud\fraud_model.pkl")
+model = joblib.load(r"model/fraud_model.pkl")
 
 
 # ---------------- DATABASE INIT ----------------
