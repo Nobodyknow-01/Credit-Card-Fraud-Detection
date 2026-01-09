@@ -18,7 +18,10 @@ app.add_middleware(
 )
 
 # ---------------- LOAD MODEL ----------------
-model = joblib.load(r"model/fraud_model.pkl")
+import os
+model_path = os.path.join(os.path.dirname(__file__), 'model', 'fraud_model.pkl')
+model = joblib.load(model_path)
+
 
 
 # ---------------- DATABASE INIT ----------------
