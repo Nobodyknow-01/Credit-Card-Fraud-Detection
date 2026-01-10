@@ -12,9 +12,16 @@ app = FastAPI(title="Credit Card Fraud Detection API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # later restrict
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+)
+
+@app.get("/")
+def home():
+    return {"status": "Backend running"}
+
 )
 
 # ---------------- LOAD MODEL ----------------
