@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react"; 
+console.log("API_URL FROM ENV =", import.meta.env.VITE_API_URL);
+
 const API_URL = import.meta.env.VITE_API_URL;
+
 
 function App() {
   const [result, setResult] = useState(null);
