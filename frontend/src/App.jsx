@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"; 
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [result, setResult] = useState(null);
@@ -22,7 +23,7 @@ function App() {
 
   const predictFraud = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/predict", {
+      const res = await fetch(`${API_URL}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -31,12 +32,18 @@ function App() {
           transactions_today: Number(form.transactions_today) || 1,
         }),
       });
+  
       const data = await res.json();
       setResult(data);
     } catch (e) {
-      setResult({ prediction: "Error", fraud_probability: 0, reasons: ["Check backend connection"] });
+      setResult({
+        prediction: "Error",
+        fraud_probability: 0,
+        reasons: ["Backend not reachable"],
+      });
     }
   };
+
 
   const loadLogs = async () => {
     try {
