@@ -22,7 +22,7 @@ app.add_middleware(
 def home():
     return {"status": "Backend running"}
 
-)
+
 
 # ---------------- LOAD MODEL ----------------
 import os
