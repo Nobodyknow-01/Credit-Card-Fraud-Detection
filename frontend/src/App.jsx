@@ -46,14 +46,15 @@ function App() {
 
 
   const loadLogs = async () => {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/admin/logs");
-      const data = await res.json();
-      setLogs(data);
-    } catch (e) {
-      setLogs([]);
-    }
-  };
+  try {
+    const res = await fetch(`${API_URL}/admin/logs`);
+    const data = await res.json();
+    setLogs(data);
+  } catch (e) {
+    setLogs([]);
+  }
+};
+
 
   useEffect(() => {
     if (admin) loadLogs();
